@@ -1,0 +1,18 @@
+header {
+    background-color: $color_green;
+}
+
+.headers {
+    display: flex;
+    justify-content: flex-end;
+    padding: 18px 0px;
+    .headers__item{
+        color: $color_text_white;
+        margin-left: 10px;
+        font-size: 19px;
+        transition: 0.3s ease-in;
+        &:hover{
+            color: $colo_text_rgeen_hover;
+        }
+    }
+}

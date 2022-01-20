@@ -23,10 +23,12 @@ function getProductName(){
     return `${product} ${color}`;
 };
 
+// let lastIndex = 0;
 
 function getProduct(){
     return {
         id: random(0, 999),
+        img: `https://placeimg.com/200/250/people/grayscale/${random(0, 1000)}`,
         name: getProductName(),
         price: random(0, 9999)
     }
@@ -47,24 +49,24 @@ function getProductList(count){
 
 const DATASITE = [
     {
-        name: 'Yandex',
-        url: 'https://www.ya.ru'
+        name: 'Доставка',
+        url: '#'
     },
     {
-        name: 'Google',
-        url: 'https://www.google.com'
+        name: 'О нас',
+        url: '#'
     },
     {
-        name: 'Bing',
-        url: 'https://www.bing.com'
+        name: 'Каталог',
+        url: '#'
     },
     {
-        name: 'Yahoo',
-        url: 'https://www.yahoo.com/'
+        name: 'Контакты',
+        url: '#'
     },
     {
-        name: 'DuckDuckGo',
-        url: 'https://duckduckgo.com/'
+        name: 'Корзина',
+        url: '#'
     }
 ];
 

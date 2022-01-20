@@ -1,0 +1,27 @@
+.poducts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .products__item{
+        margin: 7px 10px;
+        padding: 11px;
+        box-shadow: 0px 0px 11px 3px rgba(0, 0, 0, 0.15);
+        border-radius: 6px;
+        .item_btn{
+            background-color: $color_green;
+            border: none;
+            color: $color_text_white;
+            border-radius: 3px;
+            padding: 8px 21px;
+            transition: 0.3s ease-in;
+            &:hover {
+                background-color: $colo_text_rgeen_hover;
+                color: $colo_text_green_active;
+            }
+            &:active {
+                background-color: $colo_bg_rgeen_active;
+                color: $colo_text_green_active;
+            }
+        }
+    }
+}
