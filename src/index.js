@@ -1,9 +1,17 @@
-import { getProductList, getMenuList } from './mock/data.js'
-import { renderList, renderMenuLIst } from './modul.js'
-import "./css/style.scss"
+import { createBasket } from './modul.js';
+import "./css/style.scss";
+import { queryProductList, queryMenuList, queryBasketList, removeItemBasket } from './core.js';
 
-const productList = getProductList(10);
-const menulist = getMenuList();
 
-renderList(productList);
-renderMenuLIst(menulist);
+
+createBasket();
+queryBasketList('/api/getBasketList');
+queryMenuList('/api/getMenulist');
+queryProductList('/api/getProduct');
+
+
+
+
+
+
+

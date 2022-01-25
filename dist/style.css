@@ -390,6 +390,7 @@ body::-webkit-scrollbar-thumb {
 
 header {
   background-color: #486053;
+  position: relative;
 }
 
 .headers {
@@ -405,6 +406,23 @@ header {
 }
 .headers .headers__item:hover {
   color: #93b5a3;
+}
+
+.basket__block {
+  display: none;
+}
+
+.basket__active {
+  display: block;
+}
+
+.basket__block {
+  background-color: #b7b7b7;
+  position: absolute;
+  top: 56px;
+  right: 132px;
+  padding: 20px 57px;
+  border-radius: 7px;
 }
 
 .poducts {
