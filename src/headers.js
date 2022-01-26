@@ -8,6 +8,8 @@ import ApiHendler from "./ApiHendler";
 const app = new ApiHendler();
 const basket = new ApiBasket(app);
 
+
+
 function productActionButton(){
     let btn = document.querySelectorAll('.product_btn');
     btn.forEach(item => {
@@ -23,6 +25,7 @@ function productActionButton(){
 
             if(change) {
                 basket.queryAddToBasketPut(`/api/addToBasket/${id}`, {count: 1}, renderBasketlist);
+
             } else{
                 let prod = Object.assign({id: id, title: title, price: price, count: 1});
                 basket.queryAddToBasketPost('/api/addToBasket', prod, renderBasketlist);

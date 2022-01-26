@@ -30,7 +30,7 @@ export default class ApiBasket {
         });
     }
 
-    queryBasketList(url, dataAction){
+    queryBasketList(dataAction, url = '/api/getBasketList',){
         this.app.getJson(url).then(data => {
             dataAction(data);
         })

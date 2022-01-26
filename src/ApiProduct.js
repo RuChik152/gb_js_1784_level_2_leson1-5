@@ -1,3 +1,5 @@
+import {renderList} from "./modul";
+
 export default class ApiProduct {
     constructor(app) {
         this.app = app;
@@ -7,4 +9,5 @@ export default class ApiProduct {
             dataAction(data);
         });
     }
+
 }

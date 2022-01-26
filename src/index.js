@@ -1,4 +1,3 @@
-import { createBasket } from './modul.js';
 import "./css/style.scss";
 import { renderList, renderMenuLIst, renderBasketlist } from './modul.js';
 
@@ -7,17 +6,17 @@ import ApiProduct from "./ApiProduct";
 import ApiMenu from "./ApiMenu";
 import ApiBasket from "./ApiBasket";
 
+
 const app = new ApiHendler();
+
 const product = new ApiProduct(app);
 const menu = new ApiMenu(app);
 const basket = new ApiBasket(app);
 
 
-//createBasket();
 
-
-basket.queryBasketList('/api/getBasketList', renderBasketlist);
-menu.queryMenuList('/api/getMenulist', renderMenuLIst);
+basket.queryBasketList(renderBasketlist);
+//menu.queryMenuList();
 product.queryProductList('/api/getProduct', renderList);
 
 
