@@ -17,7 +17,7 @@ const basket = new ApiBasket(app);
 
 basket.queryBasketList(renderBasketlist);
 //menu.queryMenuList();
-product.queryProductList('/api/getProduct', renderList);
+//product.queryProductList();
 
 
 
