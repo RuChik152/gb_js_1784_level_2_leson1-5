@@ -1,6 +1,12 @@
 import { queryDeleteItemBasket } from './core.js';
 import productActionButton from './headers.js';
 
+import ApiHendler from "./ApiHendler";
+import ApiBasket from "./ApiBasket";
+
+const app = new  ApiHendler();
+const basket = new ApiBasket(app);
+
 const products = document.querySelector('.poducts');
 
 
@@ -33,14 +39,17 @@ const renderMenuLIst = (arr) => {
     head.insertAdjacentHTML('afterbegin', menulist);
 }
 
-const createBasket = () => {
-    let str = `<div class="basket__block"></div>`;
-    let header = document.querySelector('header');
-    header.insertAdjacentHTML('beforeend', str);
 
-    showBasket();
-    //незабыть раскоментить стили в _heade.scss для показа\скрытия корзины
-}
+
+
+// const createBasket = () => {
+//     let str = `<div class="basket__block"></div>`;
+//     let header = document.querySelector('header');
+//     header.insertAdjacentHTML('beforeend', str);
+//
+//     showBasket();
+//     //незабыть раскоментить стили в _heade.scss для показа\скрытия корзины
+// }
 
 const removeItemBasket = () => {
     let itemBtn = document.querySelectorAll('.item__btn');
@@ -48,29 +57,29 @@ const removeItemBasket = () => {
         item.addEventListener('click', function (e){
             e.preventDefault();
             let id = e.target.parentNode.dataset.id
-            queryDeleteItemBasket(`/api/delBasket/${id}`);
+            basket.queryDeleteItemBasket(`/api/delBasket/${id}`, renderBasketlist);
         })
     })
 }
 
-const showBasket = () => {
-    let basket = document.querySelector('.basket');
-    let basketBlock = document.querySelector('.basket__block');
-    basket.addEventListener('click', function(e){
-        let target = e.target == basket;
-        let isActive = basketBlock.classList.contains('basket__active');
-
-        if(target){
-            if(isActive){
-                basketBlock.classList.remove('basket__active');
-            } else {
-                basketBlock.classList.add('basket__active');
-            }
-        }
-
-    });
-    
-}
+// const showBasket = () => {
+//     let basket = document.querySelector('.basket');
+//     let basketBlock = document.querySelector('.basket__block');
+//     basket.addEventListener('click', function(e){
+//         let target = e.target == basket;
+//         let isActive = basketBlock.classList.contains('basket__active');
+//
+//         if(target){
+//             if(isActive){
+//                 basketBlock.classList.remove('basket__active');
+//             } else {
+//                 basketBlock.classList.add('basket__active');
+//             }
+//         }
+//
+//     });
+//
+// }
 
 
 const renderBasketItem = ({id, title, price, count}) => {
@@ -95,6 +104,6 @@ export {
     renderMenuLIst,
     renderList,
     renderBasketlist,
-    createBasket,
+    //createBasket,
     removeItemBasket
 }

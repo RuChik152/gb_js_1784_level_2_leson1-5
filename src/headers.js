@@ -1,5 +1,12 @@
-import { queryAddToBasketPost, queryAddToBasketPut } from './core.js';
+import { renderBasketlist } from './modul.js'
+
+import ApiBasket from "./ApiBasket";
+import ApiHendler from "./ApiHendler";
+
 "use strict";
+
+const app = new ApiHendler();
+const basket = new ApiBasket(app);
 
 function productActionButton(){
     let btn = document.querySelectorAll('.product_btn');
@@ -15,10 +22,10 @@ function productActionButton(){
 
 
             if(change) {
-                queryAddToBasketPut(`/api/addToBasket/${id}`, {count: 1});
+                basket.queryAddToBasketPut(`/api/addToBasket/${id}`, {count: 1}, renderBasketlist);
             } else{
                 let prod = Object.assign({id: id, title: title, price: price, count: 1});
-                queryAddToBasketPost('/api/addToBasket', prod);
+                basket.queryAddToBasketPost('/api/addToBasket', prod, renderBasketlist);
             }
         })
     })
