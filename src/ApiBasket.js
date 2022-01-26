@@ -2,6 +2,7 @@ export default class ApiBasket {
     constructor(app) {
         this.app = app;
         this.createBasket();
+        this.queryBasketList();
     }
 
 
@@ -30,6 +31,8 @@ export default class ApiBasket {
         });
     }
 
+
+
     queryBasketList(dataAction, url = '/api/getBasketList',){
         this.app.getJson(url).then(data => {
             dataAction(data);
@@ -55,4 +58,6 @@ export default class ApiBasket {
             }
         })
     }
+
+
 }

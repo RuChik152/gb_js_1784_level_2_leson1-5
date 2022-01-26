@@ -1,28 +1,9 @@
-import productActionButton from './headers.js';
-
 import ApiHendler from "./ApiHendler";
 import ApiBasket from "./ApiBasket";
 
 const app = new  ApiHendler();
 const basket = new ApiBasket(app);
 
-const products = document.querySelector('.poducts');
-
-
-const renderProductItem = ({id, title, price}) => {
-    return `<div class="products__item" data-id="${id}" data-title="${title}" data-price="${price}">
-        <h2 class="item__name">${title}</h2>
-        <p class="item__price">${price}</p>
-        <button class="product_btn">Купить</button>
-    </div>`;
-};
-
-
-const renderList = (list) => {
-    let productlist = list.map( item => { return renderProductItem(item) }).join('');
-    products.insertAdjacentHTML('afterbegin', productlist);
-    productActionButton();
-};
 
 
 
@@ -58,7 +39,6 @@ const renderBasketlist = (arr) => {
 }
 
 export {
-    renderList,
     renderBasketlist,
     removeItemBasket
 }

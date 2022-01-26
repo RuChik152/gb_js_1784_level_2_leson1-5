@@ -1,9 +1,8 @@
+"use strict";
 import { renderBasketlist } from './modul.js'
 
 import ApiBasket from "./ApiBasket";
 import ApiHendler from "./ApiHendler";
-
-"use strict";
 
 const app = new ApiHendler();
 const basket = new ApiBasket(app);
