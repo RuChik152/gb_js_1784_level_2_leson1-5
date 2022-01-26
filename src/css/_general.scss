@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    &::-webkit-scrollbar {
+        background-color: #ffffff;
+        width: 6px;
+        border-radius: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $color_green;
+        width: 10px;
+        border-radius: 6px;
+    }
+}
+
+.tytle{
+    font-family: 'Lobster', cursive;
+    text-align: center;
+}

@@ -1,5 +1,6 @@
+@import "./normalize.css";
 @import "./mixin.scss";
-
-body {
-    background-color: $color;
-}
+@import "./general";
+@import "./header";
+@import "./products";
+@import "./footer";

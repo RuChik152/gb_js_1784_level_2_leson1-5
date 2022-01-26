@@ -31,9 +31,10 @@ module.exports = {
             template: path.resolve(__dirname, './public/template.html'),
             filename: 'index.html',
             title: 'GB__home__work', 
-            nameshop: '<h1>MyShop</h1>',
-            blocproduct: '<div class="poducts"></div>',
-            header: '<header class="headers"></header>'
+            nameshop: '<h1 class="tytle">MyShop</h1>',
+            blocproduct: '<div class="poducts container"></div>',
+            header: '<div class="headers container"></siv>',
+            footer: '<footer></footer>'
         }),
         new miniCss({
             filename: 'style.css',
