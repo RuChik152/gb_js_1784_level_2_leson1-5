@@ -1,4 +1,5 @@
 import productActionButton from "./headers";
+import {removeItemBasket} from "./modul";
 
 export default class Render {
     constructor() {
@@ -19,4 +20,6 @@ export default class Render {
         <button class="product_btn">Купить</button>
     </div>`;
     };
+
+
 }

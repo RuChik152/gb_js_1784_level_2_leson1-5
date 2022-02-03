@@ -1,16 +1,18 @@
-export default class ApiBasket {
-    constructor(app) {
-        this.app = app;
-        this.createBasket();
-        this.queryBasketList();
+'use strict';
+
+import ApiHendler from "./ApiHendler";
+
+export  default class ApiBasket extends ApiHendler{
+    constructor(SRV_URL) {
+        super(SRV_URL);
+        this.showBasket();
+        console.log('class ApiBasket', this);
     }
 
-
-    createBasket(){
-        let str = `<div class="basket__block"></div>`;
-        let header = document.querySelector('header');
-        header.insertAdjacentHTML('beforeend', str);
-        this.showBasket();
+    getReqBasket(url ='/api/getBasketList', dataActive) {
+        return super.getReqToSrv(url).then(data => {
+            dataActive(data);
+        });
     }
 
     showBasket(){
@@ -30,34 +32,4 @@ export default class ApiBasket {
 
         });
     }
-
-
-
-    queryBasketList(dataAction, url = '/api/getBasketList',){
-        this.app.getJson(url).then(data => {
-            dataAction(data);
-        })
-    }
-
-    queryAddToBasketPost(url, data, dataAction){
-        this.app.postJson(url, data).then(data => {
-            dataAction(data.userbasket);
-        })
-    }
-
-    queryAddToBasketPut(url, data, dataAction){
-        this.app.putJson(url, data).then(data => {
-            dataAction(data.userbasket);
-        })
-    }
-
-    queryDeleteItemBasket(url, dataAction){
-        this.app.deletJson(url, dataAction).then(data => {
-            if(data.result === 1){
-                dataAction(data.userbasket);
-            }
-        })
-    }
-
-
 }

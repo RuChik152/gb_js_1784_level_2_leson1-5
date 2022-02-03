@@ -1,32 +1,34 @@
-export default class ApiHendler {
+'use strict';
+export default class ApiHendler{
     constructor() {
-        this.API = 'http://localhost:3000'
+        this.SRV_URL = 'http://localhost:3000'
+        console.log('class ApiHendler', this);
     }
 
-    getJson(url){
-        return fetch(`${this.API}${url}`).then(result => result.json());
+    getReqToSrv(url){
+        return fetch(`${this.SRV_URL}${url}`).then(result => result.json());
     }
 
-    postJson(url, data){
-        return fetch(`${this.API}${url}`, {
+    postReqToSrv(url, data){
+        return fetch(`${this.SRV_URL}${url}`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(data)}).then(result => result.json());
+            body: JSON.stringify(data)}).then( result => result.json());
     }
 
-    putJson(url, data) {
-        return fetch(`${this.API}${url}`, {
+    putReqToSrv(url, data){
+        return fetch(`${this.SRV_URL}${url}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(data)}).then(result => result.json());
+            body: JSON.stringify(data)}).then( result => result.json());
     }
 
-    deletJson(url){
-        return fetch(`${this.API}${url}`, {
+    deleteReqToSrv(url, data){
+        return fetch(`${this.SRV_URL}${url}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json"
