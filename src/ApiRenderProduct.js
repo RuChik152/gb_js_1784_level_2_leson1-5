@@ -3,7 +3,7 @@
 
 import ApiHendler from "./ApiHendler";
 import ApiRenderBasket from "./ApiRenderBasket";
-import ApiReloadBasket from "./css/ApiReloadBasket";
+
 
 export default class ApiRenderProduct {
     constructor() {
@@ -32,7 +32,7 @@ export default class ApiRenderProduct {
                     <button class="product_btn">Купить</button>
                 </div>`;
     }
-    
+
 
     addItemProduct(){
         let btn = document.querySelectorAll('.product_btn');
@@ -48,36 +48,12 @@ export default class ApiRenderProduct {
                 let id = Number(e.target.parentNode.dataset.id);
                 let title = String(e.target.parentNode.dataset.title);
 
-                // ApiHendler.getReqToSrv('/api/getBasketList').then(data => {
-                //     ApiRenderBasket.renderBasketList(data);
-                //     ApiRenderBasket.deleteItemBasket();
-                //
-                // })
-                //const a = new ApiReloadBasket();
 
               let basketList = ApiRenderBasket.showItemBasket();
-              //
+
                  console.log(basketList);
-              //
                  let change = basketList.find(item => item.dataset.id == id);
                  console.log(change);
-
-                // ApiHendler.getReqToSrv(`/api/getBasketList/change/${id}`).then(data => {
-                //     if(data.result == 1){
-                //         console.log('нашел');
-                //         // ApiRenderProduct.test1();
-                //         // ApiHendler.putReqToSrv(`/api/addToBasket/${id}`, {count:1});
-                //
-                //         // change.dataset.count++;
-                //         // change.children[2].innerHTML = change.dataset.count;
-                //     }
-                //     if (data.result == 0){
-                //         console.log('не нашел');
-                //         // ApiRenderProduct.test2();
-                //         // let product = Object.assign({id: id, title: title, price: price, count: 1});
-                //         // ApiHendler.postReqToSrv(`/api/addToBasket`, product);
-                //     }
-                // })
 
                 if(change){
                     ApiHendler.putReqToSrv(`/api/addToBasket/${id}`, {count:1});
@@ -85,33 +61,19 @@ export default class ApiRenderProduct {
                     change.children[2].innerHTML = change.dataset.count;
                 } else {
                     let product = Object.assign({id: id, title: title, price: price, count: 1});
-                    ApiHendler.postReqToSrv(`/api/addToBasket`, product);
+                    ApiHendler.postReqToSrv(`/api/addToBasket`, product)
+                        .then((data) => {
+                        return data.userbasket;
+                        })
+                        .then((data) => {
+                            ApiRenderBasket.renderBasketList(data);
+                            ApiRenderBasket.deleteItemBasket();
+                        })
 
-
-
-                    // const productArr = []
-                    // productArr.push(product);
-
-
-
-                    // ApiHendler.getReqToSrv('/api/getBasketList').then(data => {
-                    //     ApiRenderBasket.renderBasketList(data);
-                    //     ApiRenderBasket.deleteItemBasket();
-                    //
-                    // })
-
-                    // ApiRenderBasket.renderBasketList(productArr);
-                    // ApiRenderBasket.deleteItemBasket();
-
-                    // let basketBlock = document.querySelector('.basket__block');
-                    // basketBlock.innerHTML = '';
-                    // ApiRenderBasket.renderBasketItem(item)
                 }
-
-
 
             })
         })
-        //ApiRenderBasket.getReqBasketRender();
+
     }
 }

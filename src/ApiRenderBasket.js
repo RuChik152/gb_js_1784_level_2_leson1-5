@@ -24,17 +24,10 @@ export default class ApiRenderBasket{
                 let id = e.target.parentNode.dataset.id;
                 let target = e.target.parentNode;
 
-                // console.log('Нжали на кнопку удалить', e.target);
-                //let basketList = document.querySelectorAll('.basket__item');
                 let basketList = ApiRenderBasket.showItemBasket();
                 console.log(basketList[0].dataset.count);
                 for(let i = 0; i < basketList.length; i++){
                     let change = basketList[i] == target;
-                    //console.log(basketList[i].dataset.count);
-                    // console.log(basketList[i]);
-                    // console.log(basketList[i].children[2]);
-                    //debugger
-                    //console.log(e.target)
 
                     if(change){
                         let count = Number(basketList[i].dataset.count);
