@@ -4,15 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title><%= htmlWebpackPlugin.options.title %> Lesson№3</title>
 </head>
 <body>
-    <%= htmlWebpackPlugin.options.header %>
+    
+    <header><%= htmlWebpackPlugin.options.header %><a href="#" class="headers__item basket">Корзина</a>
+        <div class="basket__block">
+            <div class="basket__item" data-id="10" data-title="NAME_NAME" data-price="100" data-count="10">
+                <h2 class="item__name">NAME_NAME</h2>
+                <p class="item__price">100</p>
+                <button class="item__btn">Удалить</button>
+            </div>
+            <div class="basket__item" data-id="20" data-title="NAME_NAME_2" data-price="200" data-count="20">
+                <h2 class="item__name">NAME_NAME_2</h2>
+                <p class="item__price">200</p>
+                <button class="item__btn">Удалить</button>
+            </div>
+        </div>
+    </header>
 
     <%= htmlWebpackPlugin.options.nameshop %>
 
     <%= htmlWebpackPlugin.options.blocproduct %>
+<!--    <div class="products__item" data-id="20" data-title="NAME_PRODUCT" data-price="100">-->
+<!--        <h2 class="item__name">NAME_PRODUCT</h2>-->
+<!--        <p class="item__price">100</p>-->
+<!--        <button class="product__btn">Купить</button>-->
+<!--    </div>-->
+<!--    <div class="products__item" data-id="30" data-title="NAME_PRODUCT" data-price="1200">-->
+<!--        <h2 class="item__name">NAME_PRODUCT2</h2>-->
+<!--        <p class="item__price">1700</p>-->
+<!--        <button class="product__btn">Купить</button>-->
+<!--    </div>-->
+<!--    <div class="products__item" data-id="40" data-title="NAME_PRODUCT" data-price="1300">-->
+<!--        <h2 class="item__name">NAME_PRODUCT3</h2>-->
+<!--        <p class="item__price">1600</p>-->
+<!--        <button class="product__btn">Купить</button>-->
+<!--    </div>-->
+<!--    <div class="products__item" data-id="50" data-title="NAME_PRODUCT" data-price="1400">-->
+<!--        <h2 class="item__name">NAME_PRODUCT4</h2>-->
+<!--        <p class="item__price">1500</p>-->
+<!--        <button class="product__btn">Купить</button>-->
+<!--    </div>-->
     
+
+    <%= htmlWebpackPlugin.options.footer %>
 </body>
 </html>
 

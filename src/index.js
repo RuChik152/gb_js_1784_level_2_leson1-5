@@ -1,10 +1,7 @@
-import { getProductList, getMenuList } from './mock/data.js'
-import { renderList, renderMenuLIst } from './modul.js'
-import "./css/style.scss"
+'use strict';
+import "./css/style.scss";
+import ApiRenderBasket from "./ApiRenderBasket";
+import ApiRenderProduct from "./ApiRenderProduct";
 
-
-const productList = getProductList(10);
-const menulist = getMenuList();
-
-renderList(productList);
-renderMenuLIst(menulist);
+const basket = new ApiRenderBasket();
+const product = new ApiRenderProduct();

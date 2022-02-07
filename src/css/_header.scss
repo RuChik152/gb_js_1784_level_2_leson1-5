@@ -1,0 +1,36 @@
+header {
+    background-color: $color_green;
+    position: relative;
+}
+
+.headers {
+    display: flex;
+    justify-content: flex-end;
+    padding: 18px 0px;
+    .headers__item{
+        color: $color_text_white;
+        margin-left: 10px;
+        font-size: 19px;
+        transition: 0.3s ease-in;
+        &:hover{
+            color: $colo_text_rgeen_hover;
+        }
+    }
+}
+
+.basket__block {
+    display: none;
+}
+
+.basket__active {
+    display: block;
+}
+
+.basket__block {
+    background-color: #b7b7b7;
+    position: absolute;
+    top: 56px;
+    right: 132px;
+    padding: 20px 57px;
+    border-radius: 7px;
+}
